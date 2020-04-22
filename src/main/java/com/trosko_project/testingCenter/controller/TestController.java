@@ -4,14 +4,14 @@ import com.trosko_project.testingCenter.model.Category;
 import com.trosko_project.testingCenter.model.Record;
 import com.trosko_project.testingCenter.model.Test;
 import com.trosko_project.testingCenter.model.Type;
+import com.trosko_project.testingCenter.payload.TestRequest;
 import com.trosko_project.testingCenter.repository.CategoryRepository;
 import com.trosko_project.testingCenter.repository.RecordRepository;
 import com.trosko_project.testingCenter.repository.TestRepository;
 import com.trosko_project.testingCenter.repository.TypeRepository;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +60,14 @@ public class TestController {
         JSONArray ja = new JSONArray();
         ja.put(tests);
         return ja.toString();
+    }
+    @PostMapping(path ="/api/test/update", consumes = "application/json", produces = "application/json")
+    public String authorSave(@RequestBody TestRequest req) {
+        //Test test = testRepository.findById(req.getId()).get();
+        //test.setDescription(req.getDescription());
+        // testRepository.save(test);
+        System.out.println(req.getDescription());
+        return "success";
     }
     @GetMapping("/api/records")
     public String getRecordsHandler() {
