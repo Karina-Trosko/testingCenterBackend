@@ -13,15 +13,15 @@ public class User {
     @Column(name="first_name")
     private String firstName;
     @Column(name="surname")
-    private int surname;
+    private String surname;
     @Column(name="patronymic")
     private String patronymic;
     @Column(name="login")
     private String login;
     @Column(name="password")
-    private int password;
+    private String password;
     @Column(name="contact_information")
-    private int contactInformation;
+    private String contactInformation;
 
     public int getId() {
         return id;
@@ -37,14 +37,6 @@ public class User {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-
-    public int getSurname() {
-        return surname;
-    }
-
-    public void setSurname(int surname) {
-        this.surname = surname;
     }
 
     public String getPatronymic() {
@@ -63,19 +55,27 @@ public class User {
         this.login = login;
     }
 
-    public int getPassword() {
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public int getContactInformation() {
+    public String getContactInformation() {
         return contactInformation;
     }
 
-    public void setContactInformation(int contactInformation) {
+    public void setContactInformation(String contactInformation) {
         this.contactInformation = contactInformation;
     }
 }
