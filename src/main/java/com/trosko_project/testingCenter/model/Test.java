@@ -1,6 +1,9 @@
 package com.trosko_project.testingCenter.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name="tests")
 public class Test {
@@ -20,6 +23,20 @@ public class Test {
     @Column(name="duration")
     private int duration;
 
+    @ManyToOne
+    @JoinColumn
+    private User user;
+    @ManyToOne
+    @JoinColumn
+    private Type type;
+    @ManyToOne
+    @JoinColumn
+    private Category category;
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Record> records = new ArrayList<>();
     public int getId() {
         return id;
     }
@@ -66,5 +83,37 @@ public class Test {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<Record> getRecords() {
+        return records;
+    }
+
+    public void setRecords(List<Record> records) {
+        this.records = records;
     }
 }

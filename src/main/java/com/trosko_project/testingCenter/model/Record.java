@@ -17,6 +17,12 @@ public class Record {
     private Date end;
     @Column(name="result")
     private String result;
+    @ManyToOne
+    @JoinColumn
+    private User user;
+    @ManyToOne
+    @JoinColumn
+    private Test test;
 
     public int getId() {
         return id;
@@ -48,5 +54,21 @@ public class Record {
 
     public void setResult(String result) {
         this.result = result;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
     }
 }
