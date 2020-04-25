@@ -22,6 +22,8 @@ public class Test {
     private String contentsLink;
     @Column(name="duration")
     private int duration;
+//    @Column(name="category_id")
+//    private int categoryId;
 
     @ManyToOne
     @JoinColumn

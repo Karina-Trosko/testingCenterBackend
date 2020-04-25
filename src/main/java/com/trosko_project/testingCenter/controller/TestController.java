@@ -69,6 +69,15 @@ public class TestController {
         System.out.println(req.getDescription());
         return "success";
     }
+
+    @PostMapping("/api/test/delete/{id}")
+    public String delete(@PathVariable int id) {
+        testRepository.deleteById(id);
+        System.out.println(id);
+        return "success";
+        //return "redirect:/books";
+    }
+
     @GetMapping("/api/records")
     public String getRecordsHandler() {
         List<Record> records = recordRepository.findAll();
