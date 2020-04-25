@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -32,5 +33,13 @@ public class UserController {
         User user = userRepository.findById(id).get();
         JSONObject ja = new JSONObject(user);
         return ja.toString();
+    }
+
+    @PostMapping("/api/user/delete/{id}")
+    public String delete(@PathVariable int id) {
+        userRepository.deleteById(id);
+        System.out.println(id);
+        return "success";
+        //return "redirect:/books";
     }
 }
