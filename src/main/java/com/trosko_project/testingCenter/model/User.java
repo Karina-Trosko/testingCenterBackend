@@ -24,6 +24,9 @@ public class User {
     private String password;
     @Column(name="contact_information")
     private String contactInformation;
+    @Column(name="role")
+    private String role;
+
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true
@@ -34,6 +37,16 @@ public class User {
             orphanRemoval = true
     )
     private List<Record> records = new ArrayList<>();
+
+    public User(String firstName, String surname, String patronymic, String login, String password, String contactInformation) {
+        this.firstName = firstName;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.login = login;
+        this.password = password;
+        this.contactInformation = contactInformation;
+    }
+    public User() {};
     public int getId() {
         return id;
     }
@@ -104,5 +117,13 @@ public class User {
 
     public void setRecords(List<Record> records) {
         this.records = records;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
