@@ -22,8 +22,6 @@ public class Test {
     private String contentsLink;
     @Column(name="duration")
     private int duration;
-//    @Column(name="category_id")
-//    private int categoryId;
 
     @ManyToOne
     @JoinColumn
@@ -39,6 +37,16 @@ public class Test {
             orphanRemoval = true
     )
     private List<Record> records = new ArrayList<>();
+
+    public Test(String name, int numberOfQuestions, String description, String contentsLink, int duration) {
+        this.name = name;
+        this.numberOfQuestions = numberOfQuestions;
+        this.description = description;
+        this.contentsLink = contentsLink;
+        this.duration = duration;
+    }
+    public Test() {}
+
     public int getId() {
         return id;
     }
